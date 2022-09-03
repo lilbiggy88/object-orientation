@@ -4,7 +4,12 @@
   Give it a key of name with the value being your name, and another key of age with the value being your age.
 */
 
-//Code here
+const Me = {
+name: 'John',
+age: '34',
+}
+console.log(Me.name);
+console.log(Me.age);
 
 
 
@@ -15,21 +20,27 @@
 //name (a string), color (a string), age (a number),
 //and goodBoy/goodGirl (a boolean).
 
-//Code here
+const Dog = {
+  name: 'Sherman',
+  color: 'White',
+  age: '8',
+  goodBoy: true,
+};
+
 
 
 
 //////////////////////////// PROBLEM 3 ////////////////////////////
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
-//Code here
+console.log(Dog.name);
 
 
 
 //////////////////////////// PROBLEM 4 ////////////////////////////
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
-//Code here
+console.log(Dog['color'])
 
 
 
@@ -39,14 +50,24 @@
   Have the values to those keys be strings that are equal to your favorite thing in that category.
 */
 
-//Code here
+const FavoriteThings = {
+  band: 'Coldplay',
+  food: 'Hawaiian Pizza',
+  person: 'My Wife',
+  book: 'The BFG',
+  movie: 'Star Wars Franchise',
+  holiday: 'Christmas',
+};
+
 
 
 /*
-  After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another key named 'show' with the value being your favorite show.
+  After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another 
+  key named 'show' with the value being your favorite show.
 */
 
-//Code here
+FavoriteThings.car = 'Dodge Viper';
+FavoriteThings.show = ['The Office'];
 
 
 /*
@@ -54,7 +75,8 @@
   and change the value of the book key in your favoriteThings object to be 'Harry Potter'. (If they were either of those things already, change them to something else.)
 */
 
-//Code here
+FavoriteThings.food = 'Chicken Nuggets';
+FavoriteThings.book = ['Harry Potter'];
 
 
 //////////////////////////// PROBLEM 6 ////////////////////////////
@@ -64,7 +86,7 @@ var carDetails = {
   color: 'red',
   make: 'toyota',
   model: 'tacoma',
-  year: 1994
+  year: 1994,
 }
 // Do not edit the code above.
 
@@ -72,7 +94,8 @@ var carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
 
-//Code Here
+let {color, make, model, year} = carDetails
+
 
 
 
@@ -85,7 +108,8 @@ var carDetails = {
 */
 
 function greeting( obj ) {
-  //Code Here
+    let {title, firstName, lastName} = obj
+    
   
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
@@ -104,7 +128,13 @@ function greeting( obj ) {
   Sum up the values and return the total number.
 */
 
-//Code Here
+function totalPopulation(obj) {
+  let {utah, california, texas, arizona} = obj
+  
+  return utah + california + texas + arizona;
+
+
+}
 
 
 
@@ -118,7 +148,10 @@ function greeting( obj ) {
   Push these new variables to an array and return the array. 
 */
 
-//Code Here
+ function ingredients(obj) {
+ const {carb, fat, protein} = obj
+return [carb, fat, protein];
+ }
 
 
 
@@ -140,7 +173,9 @@ var user = {
   Make that change without modifying the original object code above.
 */
 
-//Code Here
+user.name = 'Byan G. Smith'
+user.email = 'bryan.smith@devmounta.in'
+
 
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
@@ -148,7 +183,8 @@ var user = {
   Using the user object above, delete the users age off of the object.
 */
 
-//Code Here
+delete user.age
+
 
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
@@ -158,9 +194,18 @@ var user = {
   Print the name of your cat instance using dot notation.
 */
 
-//Code here
+class Cat {
+  constructor(name, age, color) {
+    this.name = name;
+    this.age = age;
+    this.color = color;
+  }
+
+}
 
 
+let cat1 = new Cat('Sandy');
+console.log(cat1.name)
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
@@ -170,7 +215,22 @@ var user = {
   Call the castSpell function on the instance of your wizard.
 */
 
-//Code here
+class Wizard {
+  constructor (name, age, favoriteSpell){
+  this.name = name;
+  this.age = age;
+  this.favoriteSpell = favoriteSpell;
+  }
+  castSpell(){
+    console.log(`${this.name} has cast ${this.favoriteSpell}`)
+    
+  }
+  
+}
+
+const myWizard = new Wizard('Harry Potter', 105, 'Expecto Patronum!!!!!')
+myWizard.castSpell()
+
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -195,7 +255,26 @@ var user = {
     to be newPrice.
 */
 
-//Code Here
+class Phone {
+  constructor(brand, model, storage, color, price){
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage;
+    this.color = color;
+    this.price = price;
+    this.sold = false;
+  }
+  sell(){
+    this.sold = true
+    console.log(`${this.brand} and ${this.model} has been sold`)
+  }
+ changePrice(changePrice){
+   this.Price = changePrice;
+ }
+
+}
+
+
 
   
 /*
@@ -208,7 +287,7 @@ var user = {
     - price: number
 */
 
-//Code Here
+const newPhone = new Phone('Apple', 'iPhone 11', '128', 'Red', '299')
 
 /* 
   Call the changePrice function on one of your phones, 
@@ -217,7 +296,9 @@ var user = {
   Then console.log that object to see the price change
 */ 
 
-//Code Here 
+newPhone.changePrice(199)
+  console.log(newPhone)
+
 
 
 /*
@@ -226,7 +307,8 @@ var user = {
   Print the value of that phone's sell property to make sure it's been changed to true
 */
 
-//Code Here 
+newPhone.sell()
+console.log(newPhone)
 
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
@@ -245,7 +327,10 @@ const colors = {
 }
 //do not edit this object
 
-//Code Here 
+const colorsCopy = {...colors}
+console.log(colorsCopy)
+
+
 
 
 
@@ -273,7 +358,8 @@ const shippingInfo = {
 }
 //do not edit the objects above
 
-//Code Here
+const helensInfo = {...contactInfo, ...shippingInfo}
+console.log(helensInfo)
 
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
@@ -363,4 +449,3 @@ const shippingInfo = {
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
-//Code Here
