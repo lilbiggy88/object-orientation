@@ -377,14 +377,22 @@ console.log(helensInfo)
   And finally, print the value of the mileage.
 */
 
-//Code Here 
-
-
+class Vehicle {
+constructor(capacity, color, mileage){
+  this.capacity = capacity;
+  this.color = color;
+  this.mileage = mileage;
+}
+move(miles){
+miles + this.mileage
+console.log(mileage)
+}
+}
 /*
   Create a vehicle using your new class and save it to a variable called myFirstVehicle
 */
 
-//Code Here
+const myFirstVehicle = new Vehicle(6, 'blue', 22)
 
 
 /* 
@@ -395,17 +403,28 @@ console.log(helensInfo)
   new ones: make and isCool. (Hint: don't forget to call the super function)
 */
 
-//Code Here
+class Motorcycle extends Vehicle {
+  constructor(capacity, color, mileage, make, isCool){
+    super(capacity, color, mileage)
+    this.make = make;
+    this.isCool = isCool;
+}
+
+}
 
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
-//Code Here 
+const myFirstMotorcycle = new Motorcycle(2, 'black', 50, 'Harley', 'is very cool and fast') 
+
 
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
 */
+console.log(myFirstMotorcycle)
+
+
 
 /*
   Let's make another class based off of Vehicle. 
@@ -423,7 +442,28 @@ console.log(helensInfo)
   This function should set isSeaworthy to be true
 */
 
-//Code Here
+class Boat extends Vehicle {
+  constructor(capacity, color, mileage, make, isCool, name, type, isSeaWorth){
+  super(capacity, color, mileage, make, isCool)
+  this.name = name;
+  this.type = type;
+  this.isSeaWorth = true;
+}
+checkSeaWorthiness(){
+  if (this.isSeaWorth === true{
+    this.isSeaWorth = true
+    return `The ${this.color} ${this.type} ${this.name} is sea worthy`
+  } else if(this.isSeaWorth === false)
+    return `My ship needs ${this.type} in shape`
+
+  }
+  performMaintenance(){
+    this.isSeaWorth = true
+
+  }
+}
+
+
 
 
 /*
@@ -431,21 +471,22 @@ console.log(helensInfo)
   properties except isSeaworthy -- make that one false. Call your variable myFirstBoat.
 */
 
-//Code Here
-
+const myFirstBoat = new Boat(2, 'red', 30, 'Seedoo', 'coolio', 'The Kraken', 'Yacht')
+console.log(myFirstBoat)
 /*
   Call the checkSeaworthiness method on your new boat
 */
 
-//Code Here
+console.log(myFirstBoat.checkSeaWorthiness())
 
 /*
   Now run the performMaintenance method on your boat
 */
 
-//Code Here 
+console.log(myFirstBoat.performMaintenance())
 
 /*
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
+console.log(myFirstBoat.checkSeaWorthiness())
